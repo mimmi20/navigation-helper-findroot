@@ -13,7 +13,6 @@ declare(strict_types = 1);
 namespace Mimmi20Test\NavigationHelper\FindRoot;
 
 use Laminas\Navigation\AbstractContainer;
-use Laminas\Navigation\Exception\BadMethodCallException;
 use Laminas\Navigation\Page\AbstractPage;
 use Mezzio\Navigation\ContainerInterface;
 use Mezzio\Navigation\Page\PageInterface;
@@ -59,7 +58,6 @@ final class FindRootTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
-     * @throws BadMethodCallException
      */
     public function testSetRoot2(): void
     {
@@ -120,7 +118,6 @@ final class FindRootTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
-     * @throws BadMethodCallException
      */
     public function testFindRootRecursive2(): void
     {
@@ -176,7 +173,6 @@ final class FindRootTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
-     * @throws BadMethodCallException
      */
     public function testFindRootWithoutParent2(): void
     {
