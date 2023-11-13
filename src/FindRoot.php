@@ -2,7 +2,7 @@
 /**
  * This file is part of the mimmi20/navigation-helper-findroot package.
  *
- * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2021-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,14 +26,16 @@ final class FindRoot implements FindRootInterface
      *
      * @see find()
      *
-     * @var AbstractContainer|ContainerInterface|null
+     * @var AbstractContainer<AbstractPage>|ContainerInterface|null
      */
-    private $root;
+    private AbstractContainer | ContainerInterface | null $root = null;
 
     /**
-     * @param AbstractContainer|ContainerInterface|null $root
+     * @param AbstractContainer<AbstractPage>|ContainerInterface|null $root
+     *
+     * @throws void
      */
-    public function setRoot($root): void
+    public function setRoot(AbstractContainer | ContainerInterface | null $root): void
     {
         $this->root = $root;
     }
@@ -46,11 +48,11 @@ final class FindRoot implements FindRootInterface
      * makes sure finder methods will not traverse above the container given
      * to the render method.
      *
-     * @param AbstractPage|PageInterface $page
+     * @return AbstractContainer<AbstractPage>|ContainerInterface
      *
-     * @return AbstractContainer|ContainerInterface
+     * @throws void
      */
-    public function find($page)
+    public function find(AbstractPage | PageInterface $page): AbstractContainer | ContainerInterface
     {
         if ($this->root) {
             return $this->root;

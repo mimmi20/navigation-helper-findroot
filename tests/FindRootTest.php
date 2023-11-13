@@ -2,7 +2,7 @@
 /**
  * This file is part of the mimmi20/navigation-helper-findroot package.
  *
- * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2021-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,21 +19,18 @@ use Mezzio\Navigation\Page\PageInterface;
 use Mimmi20\NavigationHelper\FindRoot\FindRoot;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 final class FindRootTest extends TestCase
 {
     private FindRoot $findRoot;
 
+    /** @throws void */
     protected function setUp(): void
     {
         $this->findRoot = new FindRoot();
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testSetRoot(): void
     {
         $root = $this->createMock(ContainerInterface::class);
@@ -55,10 +52,7 @@ final class FindRootTest extends TestCase
         self::assertSame($root, $this->findRoot->find($page));
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testSetRoot2(): void
     {
         $root = $this->createMock(AbstractContainer::class);
@@ -78,10 +72,7 @@ final class FindRootTest extends TestCase
         self::assertSame($root, $this->findRoot->find($page));
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testFindRootRecursive(): void
     {
         $root = $this->createMock(ContainerInterface::class);
@@ -115,10 +106,7 @@ final class FindRootTest extends TestCase
         self::assertSame($root, $this->findRoot->find($page));
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testFindRootRecursive2(): void
     {
         $root = $this->createMock(AbstractContainer::class);
@@ -148,10 +136,7 @@ final class FindRootTest extends TestCase
         self::assertSame($root, $this->findRoot->find($page));
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testFindRootWithoutParent(): void
     {
         $page = $this->getMockBuilder(PageInterface::class)
@@ -170,10 +155,7 @@ final class FindRootTest extends TestCase
         self::assertSame($page, $this->findRoot->find($page));
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testFindRootWithoutParent2(): void
     {
         $page = $this->getMockBuilder(AbstractPage::class)
