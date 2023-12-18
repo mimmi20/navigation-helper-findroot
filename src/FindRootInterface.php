@@ -14,13 +14,13 @@ namespace Mimmi20\NavigationHelper\FindRoot;
 
 use Laminas\Navigation\AbstractContainer;
 use Laminas\Navigation\Page\AbstractPage;
-use Mezzio\Navigation\ContainerInterface;
-use Mezzio\Navigation\Page\PageInterface;
+use Mimmi20\Mezzio\Navigation\ContainerInterface;
+use Mimmi20\Mezzio\Navigation\Page\PageInterface;
 
 interface FindRootInterface
 {
     /**
-     * @param AbstractContainer<AbstractPage>|ContainerInterface|null $root
+     * @param AbstractContainer<AbstractPage>|ContainerInterface<PageInterface>|null $root
      *
      * @throws void
      */
@@ -34,7 +34,7 @@ interface FindRootInterface
      * makes sure finder methods will not traverse above the container given
      * to the render method.
      *
-     * @return AbstractContainer<AbstractPage>|ContainerInterface
+     * @return AbstractContainer<AbstractPage>|ContainerInterface<PageInterface>
      *
      * @throws void
      */

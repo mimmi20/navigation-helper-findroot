@@ -14,8 +14,8 @@ namespace Mimmi20Test\NavigationHelper\FindRoot;
 
 use Laminas\Navigation\AbstractContainer;
 use Laminas\Navigation\Page\AbstractPage;
-use Mezzio\Navigation\ContainerInterface;
-use Mezzio\Navigation\Page\PageInterface;
+use Mimmi20\Mezzio\Navigation\ContainerInterface;
+use Mimmi20\Mezzio\Navigation\Page\PageInterface;
 use Mimmi20\NavigationHelper\FindRoot\FindRoot;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
