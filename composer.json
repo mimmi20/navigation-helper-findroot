@@ -1,9 +1,8 @@
 {
   "name": "mimmi20/navigation-helper-findroot",
-  "type": "library",
   "description": "Provides a find-root helper for Laminas- and Mezzio Navigation",
-  "homepage": "https://github.com/mimmi20/navigation-helper-findroot",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Thomas Müller",
@@ -11,6 +10,11 @@
       "role": "Developer"
     }
   ],
+  "homepage": "https://github.com/mimmi20/navigation-helper-findroot",
+  "support": {
+    "issues": "https://github.com/mimmi20/navigation-helper-findroot/issues",
+    "source": "https://github.com/mimmi20/navigation-helper-findroot"
+  },
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
   },
@@ -57,20 +61,15 @@
       "Mimmi20Test\\NavigationHelper\\FindRoot\\": "tests/"
     }
   },
-  "support": {
-    "issues": "https://github.com/mimmi20/navigation-helper-findroot/issues",
-    "source": "https://github.com/mimmi20/navigation-helper-findroot"
-  },
   "config": {
-    "preferred-install": "dist",
-    "lock": false,
-    "sort-packages": true,
     "allow-plugins": {
-      "laminas/laminas-dependency-plugin": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
-      "phpstan/extension-installer": true,
-      "infection/extension-installer": true
-    }
+      "infection/extension-installer": true,
+      "phpstan/extension-installer": true
+    },
+    "lock": false,
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "extra": {
     "laminas": {
