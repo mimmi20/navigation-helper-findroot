@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the mimmi20/navigation-helper-findroot package.
  *
@@ -17,6 +18,7 @@ use Laminas\Navigation\Page\AbstractPage;
 use Mimmi20\Mezzio\Navigation\ContainerInterface;
 use Mimmi20\Mezzio\Navigation\Page\PageInterface;
 use Mimmi20\NavigationHelper\FindRoot\FindRoot;
+use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -25,6 +27,7 @@ final class FindRootTest extends TestCase
     private FindRoot $findRoot;
 
     /** @throws void */
+    #[Override]
     protected function setUp(): void
     {
         $this->findRoot = new FindRoot();

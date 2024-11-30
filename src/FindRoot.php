@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the mimmi20/navigation-helper-findroot package.
  *
@@ -16,6 +17,7 @@ use Laminas\Navigation\AbstractContainer;
 use Laminas\Navigation\Page\AbstractPage;
 use Mimmi20\Mezzio\Navigation\ContainerInterface;
 use Mimmi20\Mezzio\Navigation\Page\PageInterface;
+use Override;
 
 final class FindRoot implements FindRootInterface
 {
@@ -35,6 +37,7 @@ final class FindRoot implements FindRootInterface
      *
      * @throws void
      */
+    #[Override]
     public function setRoot(AbstractContainer | ContainerInterface | null $root): void
     {
         $this->root = $root;
@@ -52,6 +55,7 @@ final class FindRoot implements FindRootInterface
      *
      * @throws void
      */
+    #[Override]
     public function find(AbstractPage | PageInterface $page): AbstractContainer | ContainerInterface
     {
         if ($this->root) {
