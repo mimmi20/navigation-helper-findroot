@@ -18,24 +18,21 @@ use Laminas\Navigation\Page\AbstractPage;
 use Mimmi20\Mezzio\Navigation\ContainerInterface;
 use Mimmi20\Mezzio\Navigation\Page\PageInterface;
 use Mimmi20\NavigationHelper\FindRoot\FindRoot;
-use Override;
+use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
 final class FindRootTest extends TestCase
 {
-    private FindRoot $findRoot;
-
-    /** @throws void */
-    #[Override]
-    protected function setUp(): void
-    {
-        $this->findRoot = new FindRoot();
-    }
-
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testSetRoot(): void
     {
+        $helper = new FindRoot();
+
         $root = $this->createMock(ContainerInterface::class);
 
         $page = $this->getMockBuilder(PageInterface::class)
@@ -50,14 +47,20 @@ final class FindRootTest extends TestCase
         $page->expects(self::never())
             ->method('setParent');
 
-        $this->findRoot->setRoot($root);
+        $helper->setRoot($root);
 
-        self::assertSame($root, $this->findRoot->find($page));
+        self::assertSame($root, $helper->find($page));
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testSetRoot2(): void
     {
+        $helper = new FindRoot();
+
         $root = $this->createMock(AbstractContainer::class);
 
         $page = $this->getMockBuilder(AbstractPage::class)
@@ -70,14 +73,20 @@ final class FindRootTest extends TestCase
         $page->expects(self::never())
             ->method('setParent');
 
-        $this->findRoot->setRoot($root);
+        $helper->setRoot($root);
 
-        self::assertSame($root, $this->findRoot->find($page));
+        self::assertSame($root, $helper->find($page));
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testFindRootRecursive(): void
     {
+        $helper = new FindRoot();
+
         $root = $this->createMock(ContainerInterface::class);
 
         $parentPage = $this->getMockBuilder(PageInterface::class)
@@ -106,12 +115,18 @@ final class FindRootTest extends TestCase
         $page->expects(self::never())
             ->method('setParent');
 
-        self::assertSame($root, $this->findRoot->find($page));
+        self::assertSame($root, $helper->find($page));
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testFindRootRecursive2(): void
     {
+        $helper = new FindRoot();
+
         $root = $this->createMock(AbstractContainer::class);
 
         $parentPage = $this->getMockBuilder(AbstractPage::class)
@@ -136,12 +151,14 @@ final class FindRootTest extends TestCase
         $page->expects(self::never())
             ->method('setParent');
 
-        self::assertSame($root, $this->findRoot->find($page));
+        self::assertSame($root, $helper->find($page));
     }
 
     /** @throws Exception */
     public function testFindRootWithoutParent(): void
     {
+        $helper = new FindRoot();
+
         $page = $this->getMockBuilder(PageInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -155,12 +172,14 @@ final class FindRootTest extends TestCase
         $page->expects(self::never())
             ->method('setParent');
 
-        self::assertSame($page, $this->findRoot->find($page));
+        self::assertSame($page, $helper->find($page));
     }
 
     /** @throws Exception */
     public function testFindRootWithoutParent2(): void
     {
+        $helper = new FindRoot();
+
         $page = $this->getMockBuilder(AbstractPage::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -172,6 +191,6 @@ final class FindRootTest extends TestCase
         $page->expects(self::never())
             ->method('setParent');
 
-        self::assertSame($page, $this->findRoot->find($page));
+        self::assertSame($page, $helper->find($page));
     }
 }
