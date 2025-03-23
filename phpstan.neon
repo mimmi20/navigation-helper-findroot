@@ -107,8 +107,8 @@ parameters:
     no_mixed: true
     narrow_param: true
 
-#  ignoreErrors:
-#    - '~MockObject~'
+  ignoreErrors:
+    - '~will always evaluate to true~'
 
 rules:
   # code complexity
