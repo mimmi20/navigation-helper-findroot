@@ -1,6 +1,6 @@
 {
   "name": "mimmi20/navigation-helper-findroot",
-  "description": "Provides a find-root helper for Laminas- and Mezzio Navigation",
+  "description": "Provides a find-root helper for Mezzio Navigation",
   "license": "MIT",
   "type": "library",
   "authors": [
